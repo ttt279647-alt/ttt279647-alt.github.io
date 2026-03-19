@@ -3,33 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness Manager - 筋トレとランニングを統合管理</title>
+    <title>Fitness Manager: Gym & Run Log</title>
+    <meta name="description" content="筋トレも、ランニングも、これ一つで。データ駆動で進化するAndroid用フィットネス管理アプリ。">
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; padding: 50px 20px; color: #333; background-color: #f8f9fa; }
-        .card { max-width: 500px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1 { color: #007bff; font-size: 28px; margin-bottom: 10px; }
-        p { line-height: 1.6; color: #666; }
-        .badge img { width: 220px; transition: transform 0.2s; }
-        .badge img:hover { transform: scale(1.05); }
-        .links { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
-        a.policy-link { color: #007bff; text-decoration: none; font-size: 14px; }
-        a.policy-link:hover { text-decoration: underline; }
+        :root {
+            --primary-color: #1976D2; /* 青色ベース */
+            --secondary-color: #0D47A1;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #F5F7FA;
+            --white: #FFFFFF;
+            --placeholder-bg: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 5% 80px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Mockup Placeholders */
+        .mockup-phone {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 9 / 19;
+            background-color: var(--placeholder-bg);
+            border-radius: 30px;
+            border: 8px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-weight: bold;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .mockup-feature {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background-color: var(--placeholder-bg);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-weight: bold;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 5%;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--secondary-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Detail Section */
+        .details {
+            padding: 80px 5%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .details h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .details p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-main);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 5%;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--bg-light);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Fitness Manager</h1>
-        <p>心拍数データに基づいた精密な分析で、<br>あなたのワークアウトを科学的にサポート。</p>
-        
-        <div class="badge">
-            <a href='https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager'>
-                <img alt='Google Play で手に入れよう' src='https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png'/>
-            </a>
-        </div>
 
-        <div class="links">
-            <a href="privacy.html" class="policy-link">プライバシーポリシー</a>
+    <header id="header">
+        <div class="logo">Fitness Manager</div>
+        <a href="https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager" target="_blank" class="cta-button">Google Playで入手</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>筋トレも、ランニングも、これ一つで。</h1>
+                <p>GPSランニング計測、詳細なワークアウト記録、高度なインターバルタイマーを統合。データ駆動であなたのフィットネスを進化させる専用アプリ。</p>
+                <a href="https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager" target="_blank" class="cta-button" style="padding: 15px 30px; font-size: 1.1rem;">無料でダウンロード</a>
+            </div>
+            <div class="hero-image">
+                <div class="mockup-phone">メイン画面画像<br>(縦長 9:19)</div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">主要機能</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="mockup-feature">統合管理の画面画像<br>(比率 4:3)</div>
+                <h3>オールインワンの記録管理</h3>
+                <p>ウェイトトレーニングの種目・重量・回数管理から、GPSを用いた屋外ランニングの距離計測まで。別々のアプリを使い分ける必要はありません。インターバルタイマーも標準搭載しています。</p>
+            </div>
+            <div class="feature-card">
+                <div class="mockup-feature">分析・連携の画面画像<br>(比率 4:3)</div>
+                <h3>Health Connect 連携</h3>
+                <p>心拍数、消費カロリー、GPSルートをHealth Connectからシームレスに取得。VDOT（最大酸素摂取量の指標）やペース分析を通じ、科学的なアプローチでパフォーマンスを可視化します。</p>
+            </div>
+            <div class="feature-card">
+                <div class="mockup-feature">カレンダー・同期の画面画像<br>(比率 4:3)</div>
+                <h3>堅牢なデータ同期</h3>
+                <p>通信環境に依存しないRoomによるローカル記録と、Firebaseを用いたセキュアなクラウド同期を両立。大切なトレーニングデータを確実に保護・管理します。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="details">
+        <h2>データを力に、効率的なトレーニングを</h2>
+        <p>1RM（最大挙上重量）や総トレーニングボリュームの自動計算機能を搭載。直感的なカレンダー表示と、週・月間のグラフ統計により、日々の成長を一目で確認できます。</p>
+        <p>※アプリ内ではキログラム(kg)/ポンド(lb)、キロメートル(km)/マイル(mile)の単位切り替えにも対応しています。</p>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html" class="policy-link">プライバシーポリシー</a>
+            <a href="terms.html">利用規約</a>
+            <a href="mailto:ttt279647@gmail.com">お問い合わせ</a>
+        </div>
+        <p><small>&copy; 2026 Fitness Manager. All rights reserved.</small></p>
+    </footer>
+
+    <script>
+        // スクロール時にヘッダーに影をつける
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
