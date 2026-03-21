@@ -28,6 +28,7 @@
             --white: #FFFFFF;
             --border: #E2E8F0;
         }
+        
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Roboto', 'Noto Sans JP', sans-serif; color: var(--text-main); line-height: 1.8; background-color: var(--white); overflow-x: hidden; }
@@ -100,6 +101,26 @@
         }
 
         @media (max-width: 768px) {
+            /* ⑧ 運動のバランス思想：左右分割レイアウト用 */
+            .philosophy-split {
+                display: flex;
+                align-items: center; /* 縦方向の中央に揃える */
+                gap: 50px; /* テキストとグラフの間の余白 */
+            }
+
+            .philosophy-text-wrapper,
+            .philosophy-embed-wrapper {
+                flex: 1; /* 左右の幅を1:1にする */
+                width: 100%;
+            }
+
+            /* スマホ閲覧時は自動で縦並びにする */
+            @media (max-width: 768px) {
+                .philosophy-split {
+                    flex-direction: column;
+                    gap: 30px;
+                }
+            }
             .phone-mockup {
                 max-width: 220px; /* スマートフォン閲覧時は少し縮小 */
             }
@@ -264,17 +285,31 @@
     </section>
 
     <section class="section section-dark">
-        <div class="container">
-            <p class="philosophy-text">
-                <strong>「有酸素」×「筋トレ」が導く、科学的な最適解。</strong>
-                筋力を高めるための負荷と、心肺機能を鍛えるための持続力。<br><br>
-                最新の厚生労働省「健康づくりのための身体活動・運動ガイド2023」においても、有酸素運動と筋力トレーニングの組み合わせが強く推奨されています。<br>
-                数々の研究により、「両方を実践する人」が、どちらか一方のみを行う人よりも総死亡リスクや心血管疾患リスクを最も低く抑えられるという事実が医学的にも証明されています。<br><br>
-                私たちは、特定の運動に偏るのではなく、この「科学的に証明されたベストバランス」を誰もが視覚的に管理できるようにすべきだと考えています。<br>
-                だからこそ、筋力と持久力、異なるアプローチの数値を一つのダッシュボード上で等しく評価できる設計にこだわりました。
-            </p>
+        <div class="container philosophy-split">
+            <div class="philosophy-text-wrapper">
+                <p class="philosophy-text" style="text-align: left; margin: 0;">
+                    <strong>「有酸素」×「筋トレ」が導く、科学的な最適解。</strong>
+                    筋力を高めるための負荷と、心肺機能を鍛えるための持続力。<br><br>
+                    最新の厚生労働省「健康づくりのための身体活動・運動ガイド2023」においても、有酸素運動と筋力トレーニングの組み合わせが強く推奨されています。<br>
+                    数々の研究により、「両方を実践する人」が、どちらか一方のみを行う人よりも総死亡リスクや心血管疾患リスクを最も低く抑えられるという事実が医学的にも証明されています。<br><br>
+                    私たちは、特定の運動に偏るのではなく、この「科学的に証明されたベストバランス」を誰もが視覚的に管理できるようにすべきだと考えています。<br>
+                    だからこそ、筋力と持久力、異なるアプローチの数値を一つのダッシュボード上で等しく評価できる設計にこだわりました。
+                </p>
+            </div>
+
+            <div class="philosophy-embed-wrapper">
+                <div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
+                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                border-radius: 8px; will-change: transform;">
+                   <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                   src="https://www.canva.com/design/DAHElxX5guA/vkUlUwIGnhRU5DpPU_Cbqw/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                   </iframe>
+                </div>
+         　　　 魔神ぷーさんによる<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHElxX5guA&#x2F;vkUlUwIGnhRU5DpPU_Cbqw&#x2F;watch?utm_content=DAHElxX5guA&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">出典：厚生労働省「健康づくりのための身体活動・運動ガイド2023」をもとに作成 (1080 x 1080 px)</a>
+                </div>
         </div>
     </section>
+    
     <section class="section">
         <div class="container">
             <p class="philosophy-text">
