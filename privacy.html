@@ -5,33 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>プライバシーポリシー - Fitness Manager</title>
     <style>
+        :root {
+            --bg-dark: #0F172A;
+            --text-light: #F8FAFC;
+            --text-gray: #94A3B8;
+            --primary: #3B82F6;
+            --container-bg: #1E293B;
+        }
         body {
-            font-family: sans-serif;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
         }
         .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: var(--container-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        h1 { font-size: 24px; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
-        h2 { font-size: 20px; margin-top: 30px; border-left: 5px solid #007bff; padding-left: 10px; }
-        h3 { font-size: 18px; margin-top: 20px; }
+        h1 { 
+            font-size: 24px; 
+            border-bottom: 2px solid var(--primary); 
+            padding-bottom: 10px; 
+            color: var(--text-light);
+        }
+        h2 { 
+            font-size: 20px; 
+            margin-top: 40px; 
+            border-left: 5px solid var(--primary); 
+            padding-left: 10px; 
+            color: var(--text-light);
+        }
+        h3 { 
+            font-size: 18px; 
+            margin-top: 20px; 
+            color: var(--text-light);
+        }
         ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        p { margin-bottom: 15px; }
-        .footer { margin-top: 40px; font-size: 14px; color: #666; }
-        .important { color: #d9534f; font-weight: bold; }
+        li, p { color: var(--text-gray); margin-bottom: 12px; }
+        .important { color: #F87171; font-weight: bold; }
+        .footer { 
+            margin-top: 40px; 
+            font-size: 14px; 
+            color: var(--text-gray); 
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+        }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .container { margin: 20px; padding: 20px; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <a href="index.html" class="back-link">← トップページに戻る</a>
+
         <h1>プライバシーポリシー</h1>
         <p>本プライバシーポリシーは、ttt（以下、「開発者」といいます）が提供するアプリケーション「Fitness Manager」（以下、「本アプリ」といいます）における、ユーザーの個人情報を含む利用者情報の取扱いについて説明するものです。</p>
 
@@ -67,7 +108,7 @@
         </ul>
 
         <h2>2. ヘルスコネクト データの取扱いについて</h2>
-        <p>本アプリがヘルスコネクトから取得した情報の使用は、<a href="https://support.google.com/googleplay/android-developer/answer/9888170?sjid=12365406730704090597-AP">ヘルスコネクトの許可される使用に関するポリシー</a>に従います。これには「最小限の範囲」の要件も含まれます。</p>
+        <p>本アプリがヘルスコネクトから取得した情報の使用は、<a href="https://support.google.com/googleplay/android-developer/answer/9888170?sjid=12365406730704090597-AP" target="_blank" rel="noopener noreferrer">ヘルスコネクトの許可される使用に関するポリシー</a>に従います。これには「最小限の範囲」の要件も含まれます。</p>
         <ul>
             <li>取得したデータは、アプリ内の分析表示にのみ使用し、広告配信や第三者への販売には一切利用しません。</li>
         </ul>
@@ -94,6 +135,7 @@
             <li><strong>情報の保存:</strong> ユーザーの会員ステータス（プレミアム会員であるか否か）を管理するため、Google Playから発行される購入トークンおよび注文IDを安全なサーバー（Firebase）に保存・照合します。</li>
             <li><strong>定期購入（サブスクリプション）の解約:</strong> 定期購入は、契約期間終了の24時間前までに解約されない限り自動的に更新されます。解約は本アプリのアンインストールでは完了しません。Google Playストアの「お支払いと定期購入」設定から手続きを行う必要があります。</li>
         </ul>
+
         <h2>7. お問い合わせ窓口</h2>
         <p>
             開発者: ttt<br>
@@ -103,7 +145,8 @@
         <div class="footer">
             制定日: 2025年11月13日<br>
             改定日: 2026年1月19日（ヘルスコネクトの読み取り項目追加および外部共有機能に関する追記）<br>
-            改定日: 2026年1月31日（アプリ内課金および有料サービスに関する規定を追加）
+            改定日: 2026年1月31日（アプリ内課金および有料サービスに関する規定を追加）<br>
+            改定日: 2026年3月23日（LPデザイン適用のためフォーマット変更）
         </div>
     </div>
 </body>
