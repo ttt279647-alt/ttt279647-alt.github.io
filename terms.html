@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約 - Fitness Manager</title>
+    <style>
+        :root {
+            --bg-dark: #0F172A;
+            --text-light: #F8FAFC;
+            --text-gray: #94A3B8;
+            --primary: #3B82F6;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 5px;
+        }
+        p, li {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← トップページに戻る</a>
+        
+        <h1>利用規約</h1>
+        <p>この利用規約（以下、「本規約」といいます。）は、Fitness Manager（以下、「本アプリ」といいます。）の利用条件を定めるものです。ユーザーの皆様には、本規約に従って本アプリをご利用いただきます。</p>
+
+        <h2>第1条（適用）</h2>
+        <p>本規約は、ユーザーと開発者との間の本アプリの利用に関わる一切の関係に適用されるものとします。</p>
+
+        <h2>第2条（アカウントとデータ同期）</h2>
+        <ul>
+            <li>本アプリのクラウド同期機能を利用するには、Googleアカウントを用いたFirebase認証によるログインが必要です。</li>
+            <li>ユーザーは、自己の責任においてアカウント情報を管理するものとします。</li>
+            <li>本アプリはローカルデータベース（Room）およびクラウドデータベース（Firestore）を用いてデータを保存・同期します。通信環境やシステム障害等によりデータの消失・同期エラーが発生した場合、開発者はその復旧の義務を負わないものとします。</li>
+        </ul>
+
+        <h2>第3条（ヘルスケアデータと位置情報の取得）</h2>
+        <ul>
+            <li>本アプリは、ユーザーの同意に基づき、Health Connect APIを通じて心拍数、消費カロリー、距離などのヘルスケアデータを取得および書き込みます。</li>
+            <li>屋外ランニング機能において、Google Maps APIおよびGPSを利用して位置情報（ルート）を記録します。</li>
+            <li>これらのデータはユーザーのトレーニング分析のみに使用され、プライバシーポリシーに定める場合を除き、第三者へ無断で提供されることはありません。</li>
+        </ul>
+
+        <h2>第4条（有料サービスとサブスクリプション）</h2>
+        <ul>
+            <li>本アプリでは、データのクラウド同期機能を利用するための「一回限りのデータ同期チケット」、および広告非表示機能を含めた「月額/年額サブスクリプション」を提供しています。</li>
+            <li>ユーザーは、Google Playの決済システムを通じて利用料金を支払うものとします。</li>
+            <li>サブスクリプションは自動更新されます。更新を停止する場合は、現在の有効期間が終了する24時間前までに、Google Playストアの設定から解約手続きを行う必要があります。</li>
+            <li>デジタルコンテンツの性質上、購入後の返金、返品はいかなる理由であっても受け付けておりません。</li>
+        </ul>
+
+        <h2>第5条（広告の表示）</h2>
+        <p>本アプリ（無料版）には、AdMobを利用した第三者の広告が表示されます。サブスクリプションに加入することで、これらのバナー広告を非表示にすることができます。</p>
+
+        <h2>第6条（免責事項）</h2>
+        <ul>
+            <li>本アプリは医療機器ではなく、提供されるデータ（心拍数、消費カロリー等）や分析結果は健康維持のための参考情報です。医学的な診断、治療、予防を目的とするものではありません。</li>
+            <li>本アプリを利用したトレーニング（ランニング、インターバル、ワークアウト等）による怪我、体調不良、事故等について、開発者は一切の責任を負いません。ご自身の体調に合わせて無理のない範囲でご利用ください。</li>
+            <li>本アプリの機能変更、提供の中断、終了によってユーザーに生じた損害について、開発者は賠償する責任を負わないものとします。</li>
+        </ul>
+
+        <h2>第7条（禁止事項）</h2>
+        <p>ユーザーは、本アプリの利用にあたり、以下の行為をしてはなりません。</p>
+        <ul>
+            <li>法令または公序良俗に違反する行為</li>
+            <li>本アプリのサーバーやネットワークの機能を破壊したり、妨害したりする行為</li>
+            <li>本アプリのデータを改ざん、または不正に取得・操作する行為</li>
+            <li>他のユーザーのGoogleアカウントを不正に使用する行為</li>
+        </ul>
+
+        <h2>第8条（利用規約の変更）</h2>
+        <p>開発者は、必要と判断した場合には、ユーザーに通知することなくいつでも本規約を変更することができるものとします。変更後の規約は、本アプリ内または本ウェブサイトに掲示した時点から効力を生じるものとします。</p>
+
+        <h2>第9条（準拠法・裁判管轄）</h2>
+        <p>本規約の解釈にあたっては、日本法を準拠法とします。本アプリに関して紛争が生じた場合には、開発者の所在地を管轄する裁判所を専属的合意管轄とします。</p>
+
+        <p style="margin-top: 40px; text-align: right;">制定日：2026年3月23日</p>
+    </div>
+</body>
+</html>
