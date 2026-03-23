@@ -48,6 +48,20 @@
         .btn { display: inline-block; background-color: var(--primary); color: var(--white); padding: 16px 40px; border-radius: 30px; font-weight: bold; font-size: 1.1rem; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 6px rgba(25, 118, 210, 0.3); }
         .btn:hover { background-color: var(--secondary); transform: translateY(-2px); box-shadow: 0 6px 12px rgba(25, 118, 210, 0.4); }
 
+        /* Google Play公式バッジ用の設定 */
+        .play-badge { 
+            display: inline-block; 
+            transition: transform 0.3s ease; 
+        }
+        .play-badge img { 
+            width: 220px; /* スマホでもPCでも押しやすい最適なサイズ */
+            height: auto; 
+            display: block;
+        }
+        .play-badge:hover { 
+            transform: translateY(-3px) scale(1.02); /* マウスを乗せたら少し浮き上がる動き */
+        }
+
         /* 画像プレースホルダー（後で実画像に差し替え） */
         .img-placeholder { background: #E2E8F0; display: flex; align-items: center; justify-content: center; color: #94A3B8; font-weight: bold; text-align: center; border-radius: 12px; }
 
@@ -185,7 +199,9 @@
         <div class="container">
             <h1>筋トレも、ランニングも、これ一つ。<br>データがあなたの限界を超える。</h1>
             <p>記録するだけじゃない。Health Connect連携と高度な分析で、昨日までの自分を科学的に超えていくための統合フィットネスアプリ。</p>
-            <a href="https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager" class="btn" target="_blank">Google Playで無料ダウンロード</a>
+            <a href="https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager" class="play-badge" target="_blank">
+                <img alt="Google Play で手に入れよう" src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png">
+            </a>
             <div class="hero-img">
                 <img src="main3.png" alt="スマホの実際の画面付き">
             </div>
@@ -382,8 +398,10 @@
 
     <section class="cta-section">
         <div class="container">
-            <h2>今すぐ、自分の限界を数値化しよう。</h2>
-            <a href="https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager" class="btn" target="_blank" style="padding: 20px 50px; font-size: 1.3rem;">Google Playで無料ダウンロード</a>
+            <h2>今すぐ、最適な自分だけの運動プランを記録しよう。</h2>
+            <a href="https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager" class="play-badge" target="_blank">
+                <img alt="Google Play で手に入れよう" src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png">
+            </a>
         </div>
     </section>
 
