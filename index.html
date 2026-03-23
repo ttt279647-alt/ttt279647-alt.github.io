@@ -52,7 +52,19 @@
         .img-placeholder { background: #E2E8F0; display: flex; align-items: center; justify-content: center; color: #94A3B8; font-weight: bold; text-align: center; border-radius: 12px; }
 
         /* ① ファーストビュー */
-        .hero { padding: 120px 0 80px; background: linear-gradient(135deg, var(--bg-light) 0%, #E3F2FD 100%); text-align: center; position: relative; }
+        .hero { 
+            padding: 120px 0 80px; 
+            text-align: center; 
+            position: relative; 
+            /* ここから下が背景画像と薄い白膜の設定です（0.95で白の濃さを調整） */
+            background-image: 
+                linear-gradient(rgba(248, 250, 252, 0.95), rgba(248, 250, 252, 0.95)), 
+                url('hero-bg.png'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
         .hero h1 { font-size: 2.8rem; color: var(--secondary); margin-bottom: 20px; line-height: 1.3; }
         .hero p { font-size: 1.2rem; color: var(--text-light); max-width: 700px; margin: 0 auto 40px; }
         .hero-img { width: 100%; height: 400px; margin-top: 50px; }
@@ -389,6 +401,4 @@
 </body>
 </html>
     
-</body>
-</html>
     
