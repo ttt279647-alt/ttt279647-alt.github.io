@@ -202,6 +202,28 @@
 
       gtag('config', 'AW-17831910810');
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17831910810"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17831910810');
+
+      /* ダウンロードボタンのクリック計測用関数 */
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.open(url, '_blank');
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17831910810/jFZgCMPZkI4cEJq79bZC', /* ここを書き換える */
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
 </head>
 <body>
 
@@ -209,7 +231,7 @@
         <div class="container">
             <h1>筋トレも、ランニングも、これ一つ。<br>データがあなたの限界を超える。</h1>
             <p>記録するだけじゃない。Health Connect連携と高度な分析で、昨日までの自分を科学的に超えていくための統合フィットネスアプリ。</p>
-            <a href="https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager" class="play-badge" target="_blank">
+            <a href="https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager" class="play-badge" target="_blank" onclick="return gtag_report_conversion('https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager');">
                 <img alt="Google Play で手に入れよう" src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png">
             </a>
             <div class="hero-img">
@@ -409,7 +431,7 @@
     <section class="cta-section">
         <div class="container">
             <h2>今すぐ、最適な自分だけの運動プランを記録しよう。</h2>
-            <a href="https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager" class="play-badge" target="_blank">
+            <a href="https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager" class="play-badge" target="_blank" onclick="return gtag_report_conversion('https://play.google.com/store/apps/details?id=to.msn.wings.fitnessmanager');">
                 <img alt="Google Play で手に入れよう" src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png">
             </a>
         </div>
