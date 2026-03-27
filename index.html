@@ -92,6 +92,39 @@
         .card { background: var(--white); padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid var(--border); }
         .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; }
 
+        /* ▼▼ここから追加（アコーディオン式カードのスタイル）▼▼ */
+        .accordion-card {
+            cursor: pointer;
+            position: relative;
+        }
+        .accordion-card:hover {
+            box-shadow: 0 8px 20px rgba(25, 118, 210, 0.15);
+            border-color: #90CAF9;
+        }
+        .accordion-icon {
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+        /* 開いたときの下向き矢印の回転 */
+        .accordion-card.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            max-height: 0; /* 初期状態は高さゼロで見えない */
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+            text-align: left;
+        }
+        /* activeクラスが付与されたら中身を展開する */
+        .accordion-card.active .accordion-content {
+            max-height: 600px; /* 十分な高さを確保 */
+            opacity: 1;
+        }
+
         /* ④ なぜ全部入りか */
         .split-section { display: flex; align-items: center; gap: 50px; }
         .split-text { flex: 1; }
@@ -257,17 +290,49 @@
             <h2>すべての記録を、手のひらに。</h2>
             <p class="lead-text">Fitness Managerは、単一のアプリであなたの身体に起きている変化を包括的に捉えます。</p>
             <div class="grid-3">
-                <div class="card">
-                    <h3>精密なワークアウト</h3>
-                    <p>AIに縛られない自由な記録。ベンチプレスの重量から細かな種目まで、自分の意図通りにメニューを入力。インターバルタイマーも完備。</p>
+                <div class="card accordion-card" onclick="toggleAccordion(this)">
+                    <h3>精密なワークアウト <span class="accordion-icon">▼</span></h3>
+                    <p style="margin-bottom: 0;">AIに縛られない自由な記録。ベンチプレスの重量から細かな種目まで、自分の意図通りに入力。インターバルタイマーも完備。</p>
+                    
+                    <div class="accordion-content">
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--border); font-size: 0.95rem; color: var(--text-main);">
+                            <ul style="padding-left: 20px;">
+                                <li style="margin-bottom: 8px;"><strong>柔軟な入力と自動計算：</strong>フリーウェイトからマシントレーニングまで対応。自重種目では体重から荷重量を自動計算し、正確な総負荷を記録します。</li>
+                                <li style="margin-bottom: 8px;"><strong>履歴からの簡単コピー：</strong>前回の挙上重量や回数を呼び出し、トレーニングのテンポを崩さずスムーズに記録。</li>
+                                <li><strong>回復度を視覚的に分析：</strong>セット間のインターバル時間を運動強度指数と共にグラフへ描写。時間経過による回復状況を客観的に分析し、最適なインターバルを見極めることができます。</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>屋内外ランニング対応</h3>
-                    <p>GPSを使った屋外でのランニング計測だけでなく、ジムのランニングマシンでの走行記録にも対応。筋トレと有酸素運動をアプリを分けずに統合管理できます。</p>
+
+                <div class="card accordion-card" onclick="toggleAccordion(this)">
+                    <h3>屋内外ランニング対応 <span class="accordion-icon">▼</span></h3>
+                    <p style="margin-bottom: 0;">GPSを使った屋外でのランニング計測だけでなく、ジムのランニングマシンでの走行記録にも対応。筋トレと有酸素運動をアプリを分けずに統合管理できます。</p>
+                    
+                    <div class="accordion-content">
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--border); font-size: 0.95rem; color: var(--text-main);">
+                            <ul style="padding-left: 20px;">
+                                <li style="margin-bottom: 8px;"><strong>トラック走に特化した計測：</strong>陸上トラックでの精緻な計測機能を搭載し、屋外での正確なペースと距離をトラッキングします。</li>
+                                <li style="margin-bottom: 8px;"><strong>屋内マシンランにも対応：</strong>ジムのトレッドミル利用時は、手動で距離と時間を入力して有酸素運動のボリュームを管理。</li>
+                                <li><strong>インターバル専用タイマー：</strong>ランニング時のインターバル走に合わせて、フレキシブルに設定できる独立した専用タイマーを搭載。</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Health Connect連携</h3>
-                    <p>腕時計型デバイスのランニングデータも一部インポート可能。心拍数や消費カロリーなどの生体データも一元管理。客観的な指標でリカバリーをサポートします。</p>
+
+                <div class="card accordion-card" onclick="toggleAccordion(this)">
+                    <h3>Health Connect連携 <span class="accordion-icon">▼</span></h3>
+                    <p style="margin-bottom: 0;">心拍数やランニングデータなどを普段お使いのデバイスから自動インポート。客観的な指標でリカバリーをサポートします。</p>
+                    
+                    <div class="accordion-content">
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--border); font-size: 0.95rem; color: var(--text-main);">
+                            <ul style="padding-left: 20px;">
+                                <li style="margin-bottom: 8px;"><strong>Health Connectとは：</strong>Googleが提供するAndroidの標準機能です。様々なデバイスやアプリが記録した健康データを、安全かつ一元的に管理・共有するハブの役割を果たします。</li>
+                                <li style="margin-bottom: 8px;"><strong>詳細な生体データを自動取得：</strong>心拍数全般にくわえ、ランニング時の距離、時間、平均ペースなどの詳細データを普段お使いのスマートウォッチなどから自動で取り込みます。</li>
+                                <li><strong>「手動」と「自動」の最適解：</strong>筋トレの種目は手動で記録しつつ、細かな生体データは自動同期。データはAndroidの厳格なセキュリティ基準でデバイス内に保護されます。</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -327,7 +392,7 @@
                 <div class="step-num">03</div>
                 <div class="step-content">
                     <h3>データを力に変える</h3>
-                    <p>自動計算される1RM（最大挙上重量）やVDOT（最大酸素摂取量指標）、週・月間の統計グラフを確認し、次回のトレーニング強度を客観的に決定する。</p>
+                    <p>自動計算される1RM（最大挙上重量）や、週・月間の統計グラフを確認し、次回のトレーニング強度を客観的に決定する。</p>
                 </div>
             </div>
         </div>
@@ -447,7 +512,12 @@
             <p><small>&copy; 2026 Fitness Manager. All rights reserved.</small></p>
         </div>
     </footer>
-
+<script>
+    function toggleAccordion(element) {
+        // クリックされたカードに 'active' クラスを付け外しして開閉する
+        element.classList.toggle("active");
+    }
+</script>
 </body>
 </html>
     
